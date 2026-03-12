@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Task Tracker</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 50px;
+    background-color: #f4f4f9;
+}
+
+h2 {
+    color: #333;
+}
+
+form input {
+    padding: 5px;
+    font-size: 16px;
+}
+
+form button {
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+ul li {
+    margin: 5px 0;
+    list-style-type: none;
+}
+
+a {
+    color: red;
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+</style>
+</head>
+
+<body>
+
+<h2>Task Tracker</h2>
+
+<form method="POST">
+<input type="text" name="task" placeholder="Enter task">
+<button type="submit">Add Task</button>
+</form>
+
+<h3>Tasks</h3>
+
+<ul>
+{% for task in tasks %}
+<li>{{ task[1] }}
+    <a href="/delete/{{ task[0] }}">Delete</a>
+</li>
+{% endfor %}
+</ul>
+
+</body>
+
+</html>
